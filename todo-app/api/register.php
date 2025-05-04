@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Passwords do not match!");
     }
 
-    // Check if username exists
     $sql = "SELECT * FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
     
@@ -19,10 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Username already taken!");
     }
 
-    // Hash password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert user
     $sql = "INSERT INTO users (username, email, password) 
            VALUES ('$username', '$email', '$hashed_password')";
     
