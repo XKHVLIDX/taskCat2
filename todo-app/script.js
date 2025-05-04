@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("todoForm");
   const list = document.getElementById("taskList");
 
-  // Load existing tasks
   function loadTasks() {
     fetch("api/todos.php", {
       method: "POST",
